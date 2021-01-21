@@ -146,6 +146,8 @@ final class Elementor_Picchi_Extension {
 			return;
 		}
 
+		// Register Widget Styles
+		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'widget_styles' ] );
 
 		// Add Plugin actions
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
@@ -241,9 +243,9 @@ final class Elementor_Picchi_Extension {
 	 */
 	public function init_widgets() {
 
-		require_once( __DIR__ . '/widgets/test-widget.php' );
+		require_once( __DIR__ . '/widgets/bannar-widget.php' );
 
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Test_Widget() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Bannar_Widget() );
 
 	}
 
@@ -272,7 +274,14 @@ final class Elementor_Picchi_Extension {
 
 	// Custom CSS
 	public function widget_styles() {
-		wp_register_style( 'picchi-extension-style', plugins_url( 'style.css', __FILE__ ) );
+
+		wp_register_style( 'picchi-extension-font', plugins_url( 'https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap', __FILE__ ) );
+
+		wp_register_style( 'picchi-extension-style', plugins_url( 'css/style.css', __FILE__ ) );
+		
+		wp_enqueue_style('picchi-extension-font');
+		wp_enqueue_style('picchi-extension-style');
+
 	}	
 
     // Custom JS

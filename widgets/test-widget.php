@@ -82,81 +82,69 @@ class Test_Widget extends \Elementor\Widget_Base {
 		);
 		$this->end_controls_section();
 		
-		// Style Tab
 		$this->start_controls_section(
-			'styles_section',
+			'style_section',
 			[
-				'label' => __( 'Style', 'picchi-extension' ),
+				'label' => __( 'Style Section', 'plugin-name' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_control(
-			'title_style',
+			'more_options',
 			[
-				'label' => __( 'Title', 'picchi-extension' ),
-				'type' => \Elementor\Controls_Manager::HEADING,
-				'separator' => 'after',
-			]
-		);
-
-		$this->add_control(
-			'title_color',
-			[
-				'label' => __( 'Color', 'picchi-extension' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .heading' => 'color: {{VALUE}}',
-				],
-			]
-		);
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'title_typography',
-				'label' => __( 'Typography', 'picchi-extension' ),
-				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .heading',
-			]
-		);
-
-
-		$this->add_control(
-			'description_style',
-			[
-				'label' => __( 'Description', 'picchi-extension' ),
+				'label' => __( 'Additional Options', 'plugin-name' ),
 				'type' => \Elementor\Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
 		);
 
+
+		$this->start_controls_tabs(
+			'style_tabs'
+		);
+
+		$this->start_controls_tab(
+			'style_normal_tab',
+			[
+				'label' => __( 'Normal', 'plugin-name' ),
+			]
+		);
+
+
 		$this->add_control(
-			'description_color',
+			'link_text1',
 			[
-				'label' => __( 'Color', 'picchi-extension' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .description' => 'color: {{VALUE}}',
-				],
+				'label' => __( 'Link Text 1', 'picchi-extension' ),
+				'label_block' => true,
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'placeholder' => __( 'Write Link Text Here!', 'picchi-extension' ),
 			]
 		);
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'style_hover_tab',
 			[
-				'name' => 'description_typography',
-				'label' => __( 'Typography', 'picchi-extension' ),
-				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .description',
+				'label' => __( 'Hover', 'plugin-name' ),
 			]
 		);
+
+		$this->add_control(
+			'link_text2',
+			[
+				'label' => __( 'Link Text 2', 'picchi-extension' ),
+				'label_block' => true,
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'placeholder' => __( 'Write Link Text Here!', 'picchi-extension' ),
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
 		$this->end_controls_section();
 
     }

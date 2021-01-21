@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+
+/* Bannar CSS */
+
+
+.bannar {
+    text-align: center;
+    color: #fff;
+  }
+  .bannar h4 {
+    margin-bottom: 0;
+    font-weight: 4000;
+  }
+  .bannar h1 {
+    text-transform: capitalize;
+    font-size: 56px;
+    margin: 10px 0;
+    font-weight: 600;
+  }
+  .bannar p {
+    color: #bbb;
+    font-size: 18px;
+  }
+  .box-btn {
+    display: inline-block;
+    background-color: tomato;
+    color: #fff;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 7px;
+  }
+  .border-btn {
+    display: inline-block;
+    border: 2px solid tomato;
+    padding: 9px 30px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 7px;
+  }
+  .bannar a {
+    margin: 0 10px;
+  }
