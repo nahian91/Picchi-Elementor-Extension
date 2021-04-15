@@ -1,52 +1,100 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-    font-family: 'Raleway', sans-serif;
+body {
+  font-family: "Raleway", sans-serif;
 }
-
 
 /* Bannar CSS */
 
-
 .bannar {
-    text-align: center;
-    color: #fff;
-  }
-  .bannar h4 {
-    margin-bottom: 0;
-    font-weight: 4000;
-  }
-  .bannar h1 {
-    text-transform: capitalize;
-    font-size: 56px;
-    margin: 10px 0;
-    font-weight: 600;
-  }
-  .bannar p {
-    color: #bbb;
-    font-size: 18px;
-  }
-  .box-btn {
-    display: inline-block;
-    background-color: tomato;
-    color: #fff;
-    padding: 10px 30px;
-    font-size: 18px;
-    font-weight: 500;
-    border-radius: 7px;
-  }
-  .border-btn {
-    display: inline-block;
-    border: 2px solid tomato;
-    padding: 9px 30px;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    border-radius: 7px;
-  }
-  .bannar a {
-    margin: 0 10px;
-  }
+  text-align: center;
+  color: #fff;
+}
+.bannar h4 {
+  margin-bottom: 0;
+  font-weight: 4000;
+}
+.bannar h1 {
+  text-transform: capitalize;
+  font-size: 56px;
+  margin: 10px 0;
+  font-weight: 600;
+}
+.bannar p {
+  color: #bbb;
+  font-size: 18px;
+}
+.box-btn {
+  display: inline-block;
+  background-color: tomato;
+  color: #fff;
+  padding: 10px 30px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 7px;
+}
+.border-btn {
+  display: inline-block;
+  border: 2px solid tomato;
+  padding: 9px 30px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 7px;
+}
+.bannar a {
+  margin: 0 10px;
+}
+
+.section-title h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #777;
+  margin-bottom: -10px;
+}
+.section-title h2 {
+	font-size: 32px;
+	text-transform: capitalize;
+	margin: 15px 0;
+	display: inline-block;
+	position: relative;
+	font-weight: 700;
+	padding-bottom: 15px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+.section-title p {
+	font-weight: 300;
+	font-size: 14px;
+}
+.black-bg .section-title h2, .black-bg .section-title h4, .black-bg .section-title p {
+  color:#fff
+}
+.section-title h2:before {
+  position: absolute;
+  content: "";
+  width: 150px;
+  height: 1px;
+  background-color: #777;
+  bottom: 0;
+  left: 50%;
+  margin-left: -75px;
+}
+.section-title h2:after {
+  position: absolute;
+  content: "";
+  width: 80px;
+  height: 3px;
+  background-color: #e16038;
+  border: darkblue;
+  bottom: -1px;
+  left: 50%;
+  margin-left: -40px;
+}
+.section-title {
+  margin-bottom: 70px;
+  text-align: center;
+}

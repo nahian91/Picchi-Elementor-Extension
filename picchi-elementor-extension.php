@@ -244,8 +244,10 @@ final class Elementor_Picchi_Extension {
 	public function init_widgets() {
 
 		require_once( __DIR__ . '/widgets/bannar-widget.php' );
+		require_once( __DIR__ . '/widgets/heading-widget.php' );
 
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Bannar_Widget() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Heading_Widget() );
 
 	}
 
