@@ -6,7 +6,7 @@
 body {
   font-family: "Raleway", sans-serif;
 }
-.pt-100{
+.pt-100 {
   padding-top: 100px;
 }
 /* Bannar CSS */
@@ -169,4 +169,7 @@ body {
   z-index: -1;
   right: -10px;
   bottom: -10px;
+}
+.single-about i {
+  font-size: 30px;
 }

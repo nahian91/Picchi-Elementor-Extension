@@ -140,20 +140,32 @@ class About_Widget extends \Elementor\Widget_Base {
         );
 
 		$repeater = new \Elementor\Repeater();
+
+		$repeater->add_control(
+			'about_feature_icon',
+			[
+				'label' => __( 'About Feature Icon', 'picchi-extension' ),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-star',
+					'library' => 'solid',
+				],
+			]
+		);
 		$repeater->add_control(
 			'about_feature_title', [
-				'label' => __( 'About Feature Title', 'plugin-domain' ),
+				'label' => __( 'About Feature Title', 'picchi-extension' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => __( 'About Feature Title' , 'plugin-domain' ),
+				'default' => __( 'About Feature Title' , 'picchi-extension' ),
 				'label_block' => true,
 			]
 		);
 
 		$repeater->add_control(
 			'about_feature_desc', [
-				'label' => __( 'About Feature Description', 'plugin-domain' ),
+				'label' => __( 'About Feature Description', 'picchi-extension' ),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
-				'default' => __( 'About Feature Title' , 'plugin-domain' ),
+				'default' => __( 'About Feature Title' , 'picchi-extension' ),
 				'label_block' => true,
 			]
 		);
@@ -183,7 +195,7 @@ class About_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'about_features_list',
 			[
-				'label' => __( 'About Features List', 'plugin-domain' ),
+				'label' => __( 'About Features List', 'picchi-extension' ),
 				'type' => \Elementor\Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'title_field' => '{{{ about_feature_title }}}',
@@ -199,43 +211,6 @@ class About_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Styles', 'picchi-extension' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-			]
-        );
-
-        // Subtitle Options
-		$this->add_control(
-			'subtitle_heading',
-			[
-				'label' => __( 'Sub Title', 'picchi-extension' ),
-				'type' => \Elementor\Controls_Manager::HEADING,
-			]
-		);
-
-        // Sub Title Color
-        $this->add_control(
-			'subtitle_color',
-			[
-				'label' => __( 'Color', 'picchi-extension' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-                ],
-                'default' => '#fff',
-				'selectors' => [
-					'{{WRAPPER}} .bannar h4' => 'color: {{VALUE}}',
-				],
-			]
-        );
-        
-        // Subtitle Typography 
-        $this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'subtitle_typography',
-				'label' => __( 'Typography', 'plugin-domain' ),
-				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .bannar h4',
 			]
         );
         
@@ -259,9 +234,9 @@ class About_Widget extends \Elementor\Widget_Base {
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
                 ],
-                'default' => '#fff',
+                'default' => '#333',
 				'selectors' => [
-					'{{WRAPPER}} .bannar h1' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .about-text h4' => 'color: {{VALUE}}',
 				],
 			]
         );
@@ -271,9 +246,9 @@ class About_Widget extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'title_typography',
-				'label' => __( 'Typography', 'plugin-domain' ),
+				'label' => __( 'Typography', 'picchi-extension' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .bannar h1',
+				'selector' => '{{WRAPPER}} .about-text h4',
 			]
         );
         
@@ -297,9 +272,9 @@ class About_Widget extends \Elementor\Widget_Base {
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
                 ],
-                'default' => '#fff',
+                'default' => '#333',
 				'selectors' => [
-					'{{WRAPPER}} .bannar p' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .about-text p' => 'color: {{VALUE}}',
 				],
 			]
         );
@@ -309,37 +284,37 @@ class About_Widget extends \Elementor\Widget_Base {
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'desc_typography',
-				'label' => __( 'Typography', 'plugin-domain' ),
+				'label' => __( 'Typography', 'picchi-extension' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .bannar p',
+				'selector' => '{{WRAPPER}} .about-text p',
 			]
         );
         
-        // Button 1 Options
+        // Button Options
 		$this->add_control(
-			'btn1_heading',
+			'btn_heading',
 			[
-				'label' => __( 'Button 1', 'picchi-extension' ),
+				'label' => __( 'Button', 'picchi-extension' ),
                 'type' => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before'
 			]
         );
         
         $this->start_controls_tabs(
-			'btn1_style_tabs'
+			'btn_style_tabs'
         );
         
         // Normal Style Tab
         $this->start_controls_tab(
-			'btn1_style_normal_tab',
+			'btn_style_normal_tab',
 			[
 				'label' => __( 'Normal', 'picchi-extension' ),
 			]
         );
 
-        // Button 1 Color
+        // Button Color
         $this->add_control(
-			'btn1_color',
+			'btn_color',
 			[
 				'label' => __( 'Color', 'picchi-extension' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
@@ -354,9 +329,9 @@ class About_Widget extends \Elementor\Widget_Base {
 			]
         );
 
-        // Button 1 Background Color
+        // Button Background Color
         $this->add_control(
-			'btn1_background',
+			'btn_background',
 			[
 				'label' => __( 'Background Color', 'picchi-extension' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
@@ -371,20 +346,20 @@ class About_Widget extends \Elementor\Widget_Base {
 			]
         );
         
-        // Button 1 Typography 
+        // Button Typography 
         $this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
-				'name' => 'btn1_typography',
+				'name' => 'btn_typography',
 				'label' => __( 'Typography', 'picchi-extension' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .box-btn',
 			]
         );
 
-        // Button 1 Padding 
+        // Button Padding 
         $this->add_control(
-			'btn1_padding',
+			'btn_padding',
 			[
 				'label' => __( 'Padding', 'picchi-extension' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
@@ -395,9 +370,9 @@ class About_Widget extends \Elementor\Widget_Base {
 			]
         );
         
-        // Button 1 Border Radius 
+        // Button Border Radius 
         $this->add_control(
-			'btn1_border_radius',
+			'btn_border_radius',
 			[
 				'label' => __( 'Border Radius', 'picchi-extension' ),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
@@ -419,9 +394,9 @@ class About_Widget extends \Elementor\Widget_Base {
 			]
         );
 
-        // Button 1 Hover Color
+        // Button Hover Color
         $this->add_control(
-			'btn1_hover_color',
+			'btn_hover_color',
 			[
 				'label' => __( 'Color', 'picchi-extension' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
@@ -436,9 +411,9 @@ class About_Widget extends \Elementor\Widget_Base {
 			]
         );
 
-        // Button 1 Hover Background Color
+        // Button Hover Background Color
         $this->add_control(
-			'btn1_hover_background',
+			'btn_hover_background',
 			[
 				'label' => __( 'Background Color', 'picchi-extension' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
@@ -457,11 +432,169 @@ class About_Widget extends \Elementor\Widget_Base {
 
         $this->end_controls_tabs();
 
-         // Button 2 Options
+		// About Image Background Options
+		$this->add_control(
+			'about_image_background_heading',
+			[
+				'label' => __( 'About Image Background', 'picchi-extension' ),
+                'type' => \Elementor\Controls_Manager::HEADING,
+			]
+		);
+
+		// About Image Background Color
+        $this->add_control(
+			'about_image_background',
+			[
+				'label' => __( 'About Image Background Color', 'picchi-extension' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+                ],
+                'default' => 'tomato',
+				'separator' => 'before',
+				'selectors' => [
+					'{{WRAPPER}} .about-img::before' => 'background-color: {{VALUE}}',
+				],
+			]
+        );
+
+		// About Feature Icon Options
+		$this->add_control(
+			'about_feature_icon_heading',
+			[
+				'label' => __( 'About Feature Icon', 'picchi-extension' ),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before'
+			]
+		);
+
+        // About Feature Icon Color
+        $this->add_control(
+			'about_feature_icon_color',
+			[
+				'label' => __( 'Icon Color', 'picchi-extension' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+                ],
+                'default' => '#333',
+				'selectors' => [
+					'{{WRAPPER}} .single-about i' => 'color: {{VALUE}}',
+				],
+			]
+        );
+
+		// About Feature Icon Size
+		$this->add_control(
+			'about_feature_icon_size',
+			[
+				'label' => __( 'Icon Size', 'plugin-domain' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => 30,
+						'max' => 80,
+						'step' => 5,
+					],
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 30,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .single-about i' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+        
+        // About Feature Title Options
+		$this->add_control(
+			'about_feature_title',
+			[
+				'label' => __( 'Title', 'picchi-extension' ),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before'
+			]
+		);
+
+        // About Feature Title Color
+        $this->add_control(
+			'about_feature_title_color',
+			[
+				'label' => __( 'Color', 'picchi-extension' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+                ],
+                'default' => '#333',
+				'selectors' => [
+					'{{WRAPPER}} .single-about h4' => 'color: {{VALUE}}',
+				],
+			]
+        );
+        
+        // About Feature Title Typography 
+        $this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'about_feature_title_typography',
+				'label' => __( 'Typography', 'picchi-extension' ),
+				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .single-about h4',
+			]
+        );
+
+		// About Feature Description Options
+		$this->add_control(
+			'about_feature_description',
+			[
+				'label' => __( 'Description', 'picchi-extension' ),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before'
+			]
+		);
+
+        // About Feature Description Color
+        $this->add_control(
+			'about_feature_desc_color',
+			[
+				'label' => __( 'Color', 'picchi-extension' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+                ],
+                'default' => '#333',
+				'selectors' => [
+					'{{WRAPPER}} .single-about p' => 'color: {{VALUE}}',
+				],
+			]
+        );
+        
+        // About Feature Description Typography 
+        $this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'about_feature_desc_typography',
+				'label' => __( 'Typography', 'picchi-extension' ),
+				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .single-about p',
+			]
+        );
+
+         // About Feature Button Options
 		$this->add_control(
 			'btn2_heading',
 			[
-				'label' => __( 'Button 2', 'picchi-extension' ),
+				'label' => __( 'Button', 'picchi-extension' ),
                 'type' => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before'
 			]
@@ -489,26 +622,9 @@ class About_Widget extends \Elementor\Widget_Base {
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
                 ],
-                'default' => '#fff',
-				'selectors' => [
-					'{{WRAPPER}} .border-btn' => 'color: {{VALUE}}',
-				],
-			]
-        );
-
-        // Button 2 Border Color
-        $this->add_control(
-			'btn2_border',
-			[
-				'label' => __( 'Border Color', 'picchi-extension' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-                ],
                 'default' => 'tomato',
 				'selectors' => [
-					'{{WRAPPER}} .border-btn' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .single-about a' => 'color: {{VALUE}}',
 				],
 			]
         );
@@ -520,35 +636,9 @@ class About_Widget extends \Elementor\Widget_Base {
 				'name' => 'btn2_typography',
 				'label' => __( 'Typography', 'picchi-extension' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .border-btn',
+				'selector' => '{{WRAPPER}} .single-about a',
 			]
         );
-
-        // Button 2 Padding 
-        $this->add_control(
-			'btn2_padding',
-			[
-				'label' => __( 'Padding', 'picchi-extension' ),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em' ],
-				'selectors' => [
-					'{{WRAPPER}} .border-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-        );
-        
-        // Button 2 Border Radius 
-        $this->add_control(
-			'btn2_border_radius',
-			[
-				'label' => __( 'Border Radius', 'picchi-extension' ),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em' ],
-				'selectors' => [
-					'{{WRAPPER}} .border-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
 
 
         $this->end_controls_tab();
@@ -571,43 +661,9 @@ class About_Widget extends \Elementor\Widget_Base {
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
                 ],
-                'default' => '#fff',
+                'default' => '#777',
 				'selectors' => [
-					'{{WRAPPER}} .border-btn:hover' => 'color: {{VALUE}}',
-				],
-			]
-        );
-
-        // Button 2 Hover BackgroundColor
-        $this->add_control(
-			'btn2_hover_background',
-			[
-				'label' => __( 'Background Color', 'picchi-extension' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-                ],
-                'default' => '#fff',
-				'selectors' => [
-					'{{WRAPPER}} .border-btn:hover' => 'background-color: {{VALUE}}',
-				],
-			]
-        );
-
-        // Button 2 Hover Border Color
-        $this->add_control(
-			'btn2_hover_border',
-			[
-				'label' => __( 'Border Color', 'picchi-extension' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-                ],
-                'default' => 'tomato',
-				'selectors' => [
-					'{{WRAPPER}} .border-btn:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .single-about a:hover' => 'color: {{VALUE}}',
 				],
 			]
         );
@@ -658,6 +714,10 @@ class About_Widget extends \Elementor\Widget_Base {
 		?>
 		<div class="col-xl-4">
 			<div class="single-about">
+				<i class="<?php echo $item['about_feature_icon']['value'];?>"></i>
+				<?php
+					// print_r($item['about_feature_icon']);
+				?>
 				<h4><?php echo $item['about_feature_title']; ?></h4>
 				<p><?php echo $item['about_feature_desc']; ?></p>
 				<a href="<?php echo $item['about_feature_btn_link']; ?>"><?php echo $item['about_feature_btn_title']; ?></a>
