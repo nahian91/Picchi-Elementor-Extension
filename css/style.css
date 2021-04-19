@@ -173,3 +173,156 @@ body {
 .single-about i {
   font-size: 30px;
 }
+
+.single-testimonial {
+  text-align: center;
+  color: #333;
+  border: 1px solid #333;
+  padding: 40px 20px;
+}
+.single-testimonial i.bi {
+  font-size: 45px;
+}
+.single-testimonial p {
+  margin: 30px 0;
+  line-height: 1.5;
+}
+.authro-info {
+  position: relative;
+  margin-top: 45px;
+}
+.authro-info h4 {
+  position: relative;
+  display: inline-block;
+  padding-left: 85px;
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: 500;
+  text-align: left;
+}
+.authro-info h4 img {
+  max-width: 70px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: -10px;
+}
+.authro-info h4 span {
+  display: block;
+  font-size: 15px;
+  font-weight: 300;
+  margin-top: 5px;
+}
+.single-testimonial p {
+  font-size: 14px;
+  font-weight: 300;
+  color: #333;
+  line-height: 1.8;
+}
+
+.single-feature ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  float: left;
+  width: 50%;
+  margin: 15px 0;
+}
+.features {
+  position: relative;
+  background-color: #f8f9fa;
+}
+.features-1::before {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  background-size: cover;
+  background-position: center;
+}
+.features-2::before {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-size: cover;
+  background-position: center;
+}
+.features-1 {
+  position: relative;
+}
+.single-feature {
+  padding: 100px;
+  overflow: hidden;
+}
+.single-feature h4 {
+  text-transform: uppercase;
+  font-size: 34px;
+  position: relative;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  font-weight: 700;
+}
+.single-feature h4:before {
+  position: absolute;
+  content: "";
+  width: 40px;
+  height: 2px;
+  background-color: tomato;
+  bottom: 0;
+  left: 50%;
+  margin-left: -20px;
+}
+.single-feature p {
+  margin-bottom: 20px;
+}
+.features-1::after {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  background-color: #333;
+  opacity: 0.8;
+}
+.features-2::after {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #333;
+  opacity: 0.8;
+}
+.single-feature h6 {
+  color: #777;
+  text-transform: lowercase;
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.feature-box h5 {
+  font-size: 22px;
+  text-transform: capitalize;
+  font-weight: 600;
+  margin: 15px 0;
+}
+.feature-box {
+  text-align: left;
+  margin: 25px 0;
+}
+.feature-box i.bi {
+  font-size: 25px;
+}
+.single-feature a.box-btn {
+  margin-top: 30px;
+}
+.ml-auto {
+	margin-left: auto;
+}

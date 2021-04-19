@@ -149,6 +149,8 @@ final class Elementor_Picchi_Extension {
 		// Register Widget Styles
 		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'widget_styles' ] );
 
+		add_action('elementor/frontend/after_enqueue_scripts', [ $this, 'widget_scripts' ] );
+
 		// Add Plugin actions
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
 		add_action( 'elementor/controls/controls_registered', [ $this, 'init_controls' ] );
@@ -246,10 +248,12 @@ final class Elementor_Picchi_Extension {
 		require_once( __DIR__ . '/widgets/bannar-widget.php' );
 		require_once( __DIR__ . '/widgets/heading-widget.php' );
 		require_once( __DIR__ . '/widgets/about-widget.php' );
+		require_once( __DIR__ . '/widgets/features-widget.php' );
 
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Bannar_Widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Heading_Widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \About_Widget() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Features_Widget() );
 
 	}
 
@@ -280,7 +284,6 @@ final class Elementor_Picchi_Extension {
 	public function widget_styles() {
 
 		wp_register_style( 'picchi-extension-font', plugins_url( 'https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap', __FILE__ ) );
-
 		wp_register_style( 'picchi-extension-style', plugins_url( 'css/style.css', __FILE__ ) );
 		
 		wp_enqueue_style('picchi-extension-font');
@@ -291,6 +294,7 @@ final class Elementor_Picchi_Extension {
     // Custom JS
 	public function widget_scripts() {
 		wp_register_script( 'picchi-extension-js', plugins_url( 'main.js', __FILE__ ) );
+		wp_enqueue_script('picchi-extension-js');
 	}
 
     // Custom Category
