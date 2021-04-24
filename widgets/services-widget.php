@@ -99,7 +99,31 @@ class Services_Widget extends \Elementor\Widget_Base {
 		$repeater = new \Elementor\Repeater();
 
 		$repeater->add_control(
-			'service_icon', [
+			'feature_media_type',
+			[
+				'label' => __( 'Media Type', 'plugin-domain' ),
+				'type' => \Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'feature_icon' => [
+						'title' => __( 'Icon', 'plugin-domain' ),
+						'icon' => 'eicon-call-to-action',
+					],
+					'feature_image' => [
+						'title' => __( 'Image', 'plugin-domain' ),
+						'icon' => 'eicon-image-box',
+					],
+					'feature_number' => [
+						'title' => __( 'Number', 'plugin-domain' ),
+						'icon' => 'eicon-number-field',
+					],
+				],
+				'default' => 'feature_icon',
+				'toggle' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'feature_icon', [
 				'label' => __( 'Icon', 'picchi-extension' ),
 				'type' => \Elementor\Controls_Manager::ICONS,
 				'default' => [
@@ -107,6 +131,32 @@ class Services_Widget extends \Elementor\Widget_Base {
 					'library' => 'solid',
 				],
 				'label_block' => true,
+				'condition' => [
+					'feature_media_type' => 'feature_icon'
+				]
+			]
+		);
+
+		$repeater->add_control(
+			'feature_image', [
+				'label' => __( 'Image', 'picchi-extension' ),
+				'type' => \Elementor\Controls_Manager::MEDIA,
+				'label_block' => true,
+				'condition' => [
+					'feature_media_type' => 'feature_image'
+				]
+			]
+		);
+		
+
+		$repeater->add_control(
+			'feature_number', [
+				'label' => __( 'Number', 'picchi-extension' ),
+				'type' => \Elementor\Controls_Manager::NUMBER,
+				'label_block' => true,
+				'condition' => [
+					'feature_media_type' => 'feature_number'
+				]
 			]
 		);
 
@@ -341,7 +391,21 @@ class Services_Widget extends \Elementor\Widget_Base {
 		?>
 		<div class="<?php echo $services_column_class; ?>">
 			<div class="single-service">
-				<i class="<?php echo $item['service_icon']['value'];?>"></i>
+				<?php
+					if(!empty($item['feature_icon']['value'])){
+				?>
+					<i class="<?php echo $item['feature_icon']['value'];?>"></i>
+				<?php
+					} elseif (!empty($item['feature_image']['url'])){
+				?>
+					<img src="<?php echo $item['feature_image']['url']; ?>" alt="">
+				<?php
+					} elseif ($item['feature_number']){
+				?>
+					<span><?php echo $item['feature_number']; ?></span>
+				<?php
+					}
+				?>
 				<h4><?php echo $item['service_title'];?></h4>
 				<p><?php echo $item['service_desc'];?></p>
 			</div>
