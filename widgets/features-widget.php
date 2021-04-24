@@ -187,18 +187,45 @@ class Features_Widget extends \Elementor\Widget_Base {
 			]
         );
 
-        // Subtitle Options
+		// Feature Area Background Options
 		$this->add_control(
-			'subtitle_heading',
+			'feature_area_back_heading',
+			[
+				'label' => __( 'Feature Background Color', 'picchi-extension' ),
+				'type' => \Elementor\Controls_Manager::HEADING,
+			]
+		);
+
+		// Feature Area Background Color
+        $this->add_control(
+			'feature_area_back',
+			[
+				'label' => __( 'Background Color', 'picchi-extension' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+                ],
+                'default' => '#f8f9fa',
+				'selectors' => [
+					'{{WRAPPER}} .features' => 'background-color: {{VALUE}}',
+				],
+			]
+        );
+
+        // Sub Title Options
+		$this->add_control(
+			'feature_subtitle_heading',
 			[
 				'label' => __( 'Sub Title', 'picchi-extension' ),
 				'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before'
 			]
 		);
 
         // Sub Title Color
         $this->add_control(
-			'subtitle_color',
+			'feature_subtitl_color',
 			[
 				'label' => __( 'Color', 'picchi-extension' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
@@ -208,19 +235,19 @@ class Features_Widget extends \Elementor\Widget_Base {
                 ],
                 'default' => '#777',
 				'selectors' => [
-					'{{WRAPPER}} .section-title h4' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .single-feature h6' => 'color: {{VALUE}}',
 				],
 			]
         );
         
-        // Subtitle Typography 
+        // Sub Title Typography 
         $this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
-				'name' => 'subtitle_typography',
+				'name' => 'feature_subtitl_typography',
 				'label' => __( 'Typography', 'picchi-extension' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .section-title h4',
+				'selector' => '{{WRAPPER}} .single-feature h6',
 			]
         );
         
@@ -244,9 +271,9 @@ class Features_Widget extends \Elementor\Widget_Base {
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
                 ],
-                'default' => '#333',
+                'default' => 'tomato',
 				'selectors' => [
-					'{{WRAPPER}} .section-title h2' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .single-feature h4' => 'color: {{VALUE}}',
 				],
 			]
         );
@@ -258,25 +285,42 @@ class Features_Widget extends \Elementor\Widget_Base {
 				'name' => 'title_typography',
 				'label' => __( 'Typography', 'picchi-extension' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .section-title h2',
+				'selector' => '{{WRAPPER}} .single-feature h4',
+			]
+        );
+
+		// Title Separator Color
+        $this->add_control(
+			'title_separator_color',
+			[
+				'label' => __( 'Separator Color', 'picchi-extension' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+                ],
+                'default' => 'tomato',
+				'selectors' => [
+					'{{WRAPPER}} .single-feature h4::before' => 'background-color: {{VALUE}}',
+				],
 			]
         );
         
-        // Description Options
+        // Features Options
 		$this->add_control(
-			'desc_heading',
+			'features_heading',
 			[
-				'label' => __( 'Description', 'picchi-extension' ),
+				'label' => __( 'Features', 'picchi-extension' ),
                 'type' => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before'
 			]
 		);
 
-        // Description Color
+        // Feature Icon Color
         $this->add_control(
-			'desc_color',
+			'feature_icon_color',
 			[
-				'label' => __( 'Color', 'picchi-extension' ),
+				'label' => __( 'Icon Color', 'picchi-extension' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
@@ -284,65 +328,159 @@ class Features_Widget extends \Elementor\Widget_Base {
                 ],
                 'default' => '#333',
 				'selectors' => [
-					'{{WRAPPER}} .section-title p' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .feature-box i' => 'color: {{VALUE}}',
 				],
 			]
         );
-        
-        // Description Typography 
-        $this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'desc_typography',
-				'label' => __( 'Typography', 'picchi-extension' ),
-				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .section-title p',
-			]
-        );
 
-		// Border Options
+		// Feature Icon Size
 		$this->add_control(
-			'border_heading',
+			'feature_icon_size',
 			[
-				'label' => __( 'Border', 'picchi-extension' ),
+				'label' => __( 'Icon Size', 'plugin-domain' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => 'px',
+				'range' => [
+					'px' => [
+						'min' => 20,
+						'max' => 100,
+						'step' => 5,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 26,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .feature-box i' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		// Features Title Options
+		$this->add_control(
+			'features_title_options',
+			[
+				'label' => __( 'Title', 'picchi-extension' ),
                 'type' => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before'
 			]
 		);
 
-		// Border 1 Background Color
+		// Features Title Color
         $this->add_control(
-			'border1_color',
+			'feature_title_color',
 			[
-				'label' => __( 'Color', 'picchi-extension' ),
+				'label' => __( 'Title Color', 'picchi-extension' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
                 ],
-                'default' => '#777',
+                'default' => '#333',
 				'selectors' => [
-					'{{WRAPPER}} .section-title h2::before' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .feature-box h5' => 'color: {{VALUE}}',
+				],
+			]
+        );
+        
+        // Features Title Typography 
+        $this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'feature_title_typography',
+				'label' => __( 'Typography', 'picchi-extension' ),
+				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .feature-box h5',
+			]
+        );
+
+		// Features Description Options
+		$this->add_control(
+			'features_desc',
+			[
+				'label' => __( 'Description', 'picchi-extension' ),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before'
+			]
+		);
+
+		// Features Description Color
+        $this->add_control(
+			'feature_desc_color',
+			[
+				'label' => __( 'Description Color', 'picchi-extension' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+                ],
+                'default' => '#333',
+				'selectors' => [
+					'{{WRAPPER}} .single-feature p' => 'color: {{VALUE}}',
+				],
+			]
+        );
+        
+        // Features Description Typography 
+        $this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'feature_desc_typography',
+				'label' => __( 'Typography', 'picchi-extension' ),
+				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .single-feature p',
+			]
+        );
+
+		// Image Options
+		$this->add_control(
+			'image_options',
+			[
+				'label' => __( 'Image', 'picchi-extension' ),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before'
+			]
+		);
+
+		// Image Background Color
+        $this->add_control(
+			'image_background',
+			[
+				'label' => __( 'Background Color', 'picchi-extension' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+                ],
+                'default' => '#333',
+				'selectors' => [
+					'{{WRAPPER}} .features-1::after, .features-2::after' => 'background-color: {{VALUE}}',
 				],
 			]
         );
 
-		// Border 2 Background Color
+		// Image Opacity
         $this->add_control(
-			'border2_color',
+			'image_opacity',
 			[
-				'label' => __( 'Color', 'picchi-extension' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-                ],
-                'default' => '#e16038',
+				'label' => __( 'Opacity', 'elementor' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 1,
+				],
+				'range' => [
+					'px' => [
+						'max' => 1,
+						'min' => 0.10,
+						'step' => 0.01,
+					],
+				],
 				'selectors' => [
-					'{{WRAPPER}} .section-title h2::after' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .elementor-image img' => 'opacity: {{SIZE}};',
 				],
 			]
-        );
+		);
 
         $this->end_controls_section();
 	}

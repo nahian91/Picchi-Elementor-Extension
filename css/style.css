@@ -324,5 +324,27 @@ body {
   margin-top: 30px;
 }
 .ml-auto {
-	margin-left: auto;
+  margin-left: auto;
+}
+
+.single-service i {
+  font-size: 35px;
+}
+.single-service h4 {
+  margin: 30px 0;
+  font-size: 20px;
+  font-weight: 700;
+  position: relative;
+}
+.single-service {
+  margin-bottom: 80px;
+  text-align: left;
+  box-shadow: 0 15px 40px #ededed;
+  padding: 40px;
+}
+.single-service p {
+  color: #646f79;
+  line-height: 26px;
+  font-size: 14px;
+  font-weight: 400;
 }

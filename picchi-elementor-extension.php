@@ -249,11 +249,13 @@ final class Elementor_Picchi_Extension {
 		require_once( __DIR__ . '/widgets/heading-widget.php' );
 		require_once( __DIR__ . '/widgets/about-widget.php' );
 		require_once( __DIR__ . '/widgets/features-widget.php' );
+		require_once( __DIR__ . '/widgets/services-widget.php' );
 
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Bannar_Widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Heading_Widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \About_Widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Features_Widget() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Services_Widget() );
 
 	}
 
