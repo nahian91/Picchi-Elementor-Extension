@@ -156,7 +156,7 @@ final class Elementor_Picchi_Extension {
 		add_action( 'elementor/controls/controls_registered', [ $this, 'init_controls' ] );
 
         // Category Init
-		//add_action( 'elementor/init', [ $this, 'elementor_common_category' ] );
+		add_action( 'elementor/init', [ $this, 'elementor_common_category' ] );
 
 	}
 
@@ -250,12 +250,14 @@ final class Elementor_Picchi_Extension {
 		require_once( __DIR__ . '/widgets/about-widget.php' );
 		require_once( __DIR__ . '/widgets/features-widget.php' );
 		require_once( __DIR__ . '/widgets/services-widget.php' );
+		require_once( __DIR__ . '/widgets/process-widget.php' );
 
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Bannar_Widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Heading_Widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \About_Widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Features_Widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Services_Widget() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Process_Widget() );
 
 	}
 
@@ -300,18 +302,17 @@ final class Elementor_Picchi_Extension {
 	}
 
     // Custom Category
-    // public function elementor_common_category () {
+    public function elementor_common_category () {
 
-	//    \Elementor\Plugin::$instance->elements_manager->add_category( 
-	//    	'picchi-extension',
-	//    	[
-	//    		'title' => __( 'Elementor Common Category', 'picchi-extension' ),
-	//    		'icon' => 'fa fa-plug', //default icon
-	//    	],
-	//    	2 // position
-	//    );
+	   \Elementor\Plugin::$instance->elements_manager->add_category( 
+	   	'picchi-category',
+	   	[
+	   		'title' => __( 'Picchi Category', 'picchi-extension' ),
+	   		'icon' => 'fa fa-plug', //default icon
+	   	]
+	   );
 
-	// }
+	}
 
 
 }

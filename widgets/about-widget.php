@@ -33,7 +33,7 @@ class About_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'About', 'picchi-extension' );
+		return __( 'Picchi About', 'picchi-extension' );
 	}
 
 	/**
@@ -47,7 +47,7 @@ class About_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'fa fa-code';
+		return 'eicon-adjust';
 	}
 
 	/**
@@ -61,7 +61,7 @@ class About_Widget extends \Elementor\Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return [ 'general' ];
+		return [ 'picchi-category' ];
 	}
 
 	/**
