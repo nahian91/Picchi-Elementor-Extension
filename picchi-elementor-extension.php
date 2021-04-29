@@ -251,6 +251,8 @@ final class Elementor_Picchi_Extension {
 		require_once( __DIR__ . '/widgets/features-widget.php' );
 		require_once( __DIR__ . '/widgets/services-widget.php' );
 		require_once( __DIR__ . '/widgets/process-widget.php' );
+		require_once( __DIR__ . '/widgets/projects-widget.php' );
+		require_once( __DIR__ . '/widgets/counter-widget.php' );
 
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Bannar_Widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Heading_Widget() );
@@ -258,6 +260,8 @@ final class Elementor_Picchi_Extension {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Features_Widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Services_Widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Process_Widget() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Projects_Widget() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Counter_Widget() );
 
 	}
 
@@ -297,8 +301,12 @@ final class Elementor_Picchi_Extension {
 
     // Custom JS
 	public function widget_scripts() {
-		wp_register_script( 'picchi-extension-js', plugins_url( 'main.js', __FILE__ ) );
-		wp_enqueue_script('picchi-extension-js');
+		wp_register_script( 'picchi-waypoint-js', plugins_url( 'js/waypoint.min.js', __FILE__ ) );
+		wp_register_script( 'picchi-counterup-js', plugins_url( 'js/counterup.min.js', __FILE__ ) );
+		wp_register_script( 'picchi-main-js', plugins_url( 'js/main.js', __FILE__ ) );
+		wp_enqueue_script('picchi-waypoint-js');
+		wp_enqueue_script('picchi-counterup-js');
+		wp_enqueue_script('picchi-main-js');
 	}
 
     // Custom Category

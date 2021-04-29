@@ -349,22 +349,22 @@ body {
   font-weight: 400;
 }
 
-.single-process{
+.single-process {
   text-align: center;
 }
 .single-process h6 {
-	background-color: #e67e22;
-	color: #fff;
-	display: inline-block;
-	padding: 10px 20px;
-	text-transform: capitalize;
-	font-size: 20px;
-	position: relative;
-	text-align: left;
-	width: 100%;
-	border-radius: 5px;
-	font-weight: 500;
-	margin-bottom: 20px;
+  background-color: #e67e22;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 20px;
+  text-transform: capitalize;
+  font-size: 20px;
+  position: relative;
+  text-align: left;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: 500;
+  margin-bottom: 20px;
 }
 .single-process h6 span {
   background-color: #d35400;
@@ -387,3 +387,181 @@ body {
   color: #fff;
 }
 
+.portfolio-menu button {
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
+}
+
+.portfolio-content h3 a i.bi {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.single-portfolio {
+  position: relative;
+}
+
+.single-portfolio img {
+  width: 100%;
+}
+
+.single-portfolio:hover .portfolio-hover {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.portfolio-hover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.portfolio-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: auto;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.portfolio-hover:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  left: 0;
+  top: 0;
+  opacity: 0.85;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+}
+
+.portfolio-content h3 a {
+  color: #fff;
+  font-size: 20px;
+  text-transform: capitalize;
+  margin: 0px;
+  display: block;
+}
+
+.portfolio-content h3 a span {
+  display: block;
+  font-weight: 300;
+  font-size: 15px;
+  margin-top: 7px;
+}
+
+.portfolio-content h3 a i.fa {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  line-height: 40px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.portfolio-menu {
+  margin-bottom: 40px;
+}
+
+.portfolio-menu buttton {
+  background-color: #635cdb;
+  border: 0px;
+}
+
+.portfolio-menu button {
+  background-color: transparent;
+  border: 1px solid #635cdb;
+  color: black;
+  padding: 3px 15px;
+  cursor: pointer;
+}
+
+.portfolio-menu button.active {
+  background-color: #635cdb;
+  color: #fff;
+}
+
+.portfolio-content h3 a i {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.no-gutters .col-md-4 {
+  padding: 0;
+}
+
+.counter-title {
+  display: flex;
+  flex-basis: 60%;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.counter-title h2 {
+  text-transform: uppercase;
+  font-size: 32px;
+  display: block;
+  font-weight: 700;
+  position: relative;
+  color: #fff;
+}
+.counter-title h2 span {
+  display: block;
+  font-size: 20px;
+  text-transform: lowercase;
+}
+.counter-title p {
+  flex-basis: 40%;
+  margin-left: 30px;
+  color: #fff;
+}
+.counter-title h2:before {
+  position: absolute;
+  content: "";
+  width: 80px;
+  height: 2px;
+  background-color: #ddd;
+  right: -55px;
+  transform: rotate(90deg);
+  top: 32px;
+}
+
+.single-counter {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  color: #333;
+  padding: 30px;
+  margin: 20px 0;
+  border-radius: 3px;
+  justify-content: center;
+}
+.single-counter i {
+  font-size: 30px;
+  margin-right: 15px;
+  border: 1px solid #333;
+  padding: 14px;
+  border-radius: 50%;
+}
+.single-counter h4 {
+  font-size: 18px;
+  font-weight: 500;
+}
+.single-counter h4 span {
+  display: block;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
