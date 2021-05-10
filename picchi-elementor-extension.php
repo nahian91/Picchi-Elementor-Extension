@@ -253,6 +253,7 @@ final class Elementor_Picchi_Extension {
 		require_once( __DIR__ . '/widgets/process-widget.php' );
 		require_once( __DIR__ . '/widgets/projects-widget.php' );
 		require_once( __DIR__ . '/widgets/counter-widget.php' );
+		require_once( __DIR__ . '/widgets/team-widget.php' );
 
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Bannar_Widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Heading_Widget() );
@@ -262,6 +263,7 @@ final class Elementor_Picchi_Extension {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Process_Widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Projects_Widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Counter_Widget() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Team_Widget() );
 
 	}
 
@@ -292,9 +294,13 @@ final class Elementor_Picchi_Extension {
 	public function widget_styles() {
 
 		wp_register_style( 'picchi-extension-font', plugins_url( 'https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap', __FILE__ ) );
+		wp_register_style( 'picchi-theme-style', plugins_url( 'js/theme.css', __FILE__ ) );
+		wp_register_style( 'picchi-owl-style', plugins_url( 'js/owl.css', __FILE__ ) );
 		wp_register_style( 'picchi-extension-style', plugins_url( 'css/style.css', __FILE__ ) );
 		
 		wp_enqueue_style('picchi-extension-font');
+		wp_enqueue_style('picchi-theme-font');
+		wp_enqueue_style('picchi-owl-font');
 		wp_enqueue_style('picchi-extension-style');
 
 	}	
@@ -303,9 +309,11 @@ final class Elementor_Picchi_Extension {
 	public function widget_scripts() {
 		wp_register_script( 'picchi-waypoint-js', plugins_url( 'js/waypoint.min.js', __FILE__ ) );
 		wp_register_script( 'picchi-counterup-js', plugins_url( 'js/counterup.min.js', __FILE__ ) );
+		wp_register_script( 'picchi-owl-js', plugins_url( 'js/owl.js', __FILE__ ) );
 		wp_register_script( 'picchi-main-js', plugins_url( 'js/main.js', __FILE__ ) );
 		wp_enqueue_script('picchi-waypoint-js');
 		wp_enqueue_script('picchi-counterup-js');
+		wp_enqueue_script('picchi-owl-js');
 		wp_enqueue_script('picchi-main-js');
 	}
 

@@ -164,11 +164,11 @@ class Counter_Widget extends \Elementor\Widget_Base {
        
         $this->end_controls_section();
 
-        // Style Tab
+        // Title & Description Style Tab
         $this->start_controls_section(
-			'style_section',
+			'title_style_section',
 			[
-				'label' => __( 'Styles', 'picchi-extension' ),
+				'label' => __( 'Title & Description', 'picchi-extension' ),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
         );
@@ -182,7 +182,7 @@ class Counter_Widget extends \Elementor\Widget_Base {
 			]
 		);
 
-        // Sub Title Color
+		// Subtitle Color
         $this->add_control(
 			'subtitle_color',
 			[
@@ -192,9 +192,9 @@ class Counter_Widget extends \Elementor\Widget_Base {
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
                 ],
-                'default' => '#777',
+                'default' => '#fff',
 				'selectors' => [
-					'{{WRAPPER}} .section-title h4' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .counter-title h2 span' => 'color: {{VALUE}}',
 				],
 			]
         );
@@ -206,10 +206,10 @@ class Counter_Widget extends \Elementor\Widget_Base {
 				'name' => 'subtitle_typography',
 				'label' => __( 'Typography', 'plugin-domain' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .section-title h4',
+				'selector' => '{{WRAPPER}} .counter-title h2 span',
 			]
         );
-        
+
         // Title Options
 		$this->add_control(
 			'title_heading',
@@ -230,9 +230,9 @@ class Counter_Widget extends \Elementor\Widget_Base {
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
                 ],
-                'default' => '#333',
+                'default' => '#fff',
 				'selectors' => [
-					'{{WRAPPER}} .section-title h2' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .counter-title h2' => 'color: {{VALUE}}',
 				],
 			]
         );
@@ -244,7 +244,7 @@ class Counter_Widget extends \Elementor\Widget_Base {
 				'name' => 'title_typography',
 				'label' => __( 'Typography', 'plugin-domain' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .section-title h2',
+				'selector' => '{{WRAPPER}} .counter-title h2',
 			]
         );
         
@@ -268,9 +268,9 @@ class Counter_Widget extends \Elementor\Widget_Base {
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
                 ],
-                'default' => '#333',
+                'default' => '#fff',
 				'selectors' => [
-					'{{WRAPPER}} .section-title p' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .counter-title p' => 'color: {{VALUE}}',
 				],
 			]
         );
@@ -282,53 +282,134 @@ class Counter_Widget extends \Elementor\Widget_Base {
 				'name' => 'desc_typography',
 				'label' => __( 'Typography', 'plugin-domain' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .section-title p',
+				'selector' => '{{WRAPPER}} .counter-title p',
 			]
         );
 
-		// Border Options
-		$this->add_control(
-			'border_heading',
+		// Separator Color
+        $this->add_control(
+			'separator_color',
 			[
-				'label' => __( 'Border', 'picchi-extension' ),
+				'label' => __( 'Separator Color', 'picchi-extension' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+                ],
+                'default' => '#fff',
+				'selectors' => [
+					'{{WRAPPER}} .counter-title h2::before' => 'background-color: {{VALUE}}',
+				],
+                'separator' => 'before'
+			]
+        );
+
+        $this->end_controls_section();
+
+		// Counter Style Tab
+        $this->start_controls_section(
+			'counter_style_section',
+			[
+				'label' => __( 'Counter', 'picchi-extension' ),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+        );
+
+		// Counter Background
+        $this->add_control(
+			'counter_back',
+			[
+				'label' => __( 'Counter Background', 'picchi-extension' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_1,
+                ],
+                'default' => '#fff',
+				'selectors' => [
+					'{{WRAPPER}} .single-counter' => 'background-color: {{VALUE}}',
+				]
+			]
+        );		
+
+		// Counter Icon
+		$this->add_control(
+			'counter_icon',
+			[
+				'label' => __( 'Icon', 'picchi-extension' ),
                 'type' => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before'
 			]
 		);
 
-		// Border 1 Background Color
+		// Counter Icon Color
         $this->add_control(
-			'border1_color',
+			'counter_icon_color',
 			[
-				'label' => __( 'Color', 'picchi-extension' ),
+				'label' => __( 'Icon Color', 'picchi-extension' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
                 ],
-                'default' => '#777',
+                'default' => '#333',
 				'selectors' => [
-					'{{WRAPPER}} .section-title h2::before' => 'background-color: {{VALUE}}',
-				],
+					'{{WRAPPER}} .single-counter i' => 'color: {{VALUE}}',
+				]
 			]
-        );
+        );	
+		
+		// Counter Icon Shape
+		$this->add_control(
+			'icon_shape',
+			[
+				'label' => __( 'Shape', 'plugin-domain' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'default',
+				'options' => [
+					'default'  => __( 'Default', 'plugin-domain' ),
+					'square' => __( 'Sqaure', 'plugin-domain' ),
+					'framed' => __( 'Framed', 'plugin-domain' ),
+				],
+				'prefix_class' => 'picchi-shape-'
+			]
+		);
 
-		// Border 2 Background Color
-        $this->add_control(
-			'border2_color',
+		$this->add_control(
+			'width',
 			[
-				'label' => __( 'Color', 'picchi-extension' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-                ],
-                'default' => '#e16038',
+				'label' => __( 'Width', 'plugin-domain' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 20,
+						'max' => 80,
+						'step' => 5,
+					]
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 30,
+				],
 				'selectors' => [
-					'{{WRAPPER}} .section-title h2::after' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .single-counter i' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 			]
-        );
+		);
+
+		$this->add_control(
+			'icon_padding',
+			[
+				'label' => __( 'Padding', 'plugin-domain' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors' => [
+					'{{WRAPPER}} .single-counter i' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		
 
         $this->end_controls_section();
 	}
