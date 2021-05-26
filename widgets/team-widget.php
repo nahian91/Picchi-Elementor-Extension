@@ -185,50 +185,12 @@ class Team_Widget extends \Elementor\Widget_Base {
 			]
         );
 
-        // Subtitle Options
-		$this->add_control(
-			'subtitle_heading',
-			[
-				'label' => __( 'Sub Title', 'picchi-extension' ),
-				'type' => \Elementor\Controls_Manager::HEADING,
-			]
-		);
-
-        // Sub Title Color
-        $this->add_control(
-			'subtitle_color',
-			[
-				'label' => __( 'Color', 'picchi-extension' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-                ],
-                'default' => '#777',
-				'selectors' => [
-					'{{WRAPPER}} .section-title h4' => 'color: {{VALUE}}',
-				],
-			]
-        );
-        
-        // Subtitle Typography 
-        $this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'subtitle_typography',
-				'label' => __( 'Typography', 'plugin-domain' ),
-				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .section-title h4',
-			]
-        );
-        
         // Title Options
 		$this->add_control(
 			'title_heading',
 			[
 				'label' => __( 'Title', 'picchi-extension' ),
-                'type' => \Elementor\Controls_Manager::HEADING,
-                'separator' => 'before'
+				'type' => \Elementor\Controls_Manager::HEADING,
 			]
 		);
 
@@ -242,9 +204,9 @@ class Team_Widget extends \Elementor\Widget_Base {
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
                 ],
-                'default' => '#333',
+                'default' => '#fff',
 				'selectors' => [
-					'{{WRAPPER}} .section-title h2' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .team-hover h4' => 'color: {{VALUE}}',
 				],
 			]
         );
@@ -256,23 +218,23 @@ class Team_Widget extends \Elementor\Widget_Base {
 				'name' => 'title_typography',
 				'label' => __( 'Typography', 'plugin-domain' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .section-title h2',
+				'selector' => '{{WRAPPER}} .team-hover h4',
 			]
         );
         
-        // Description Options
+        // Designation Options
 		$this->add_control(
-			'desc_heading',
+			'desge_heading',
 			[
-				'label' => __( 'Description', 'picchi-extension' ),
+				'label' => __( 'Designation', 'picchi-extension' ),
                 'type' => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before'
 			]
 		);
 
-        // Description Color
+        // Designation Color
         $this->add_control(
-			'desc_color',
+			'desg_color',
 			[
 				'label' => __( 'Color', 'picchi-extension' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
@@ -280,37 +242,40 @@ class Team_Widget extends \Elementor\Widget_Base {
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
                 ],
-                'default' => '#333',
+                'default' => '#fff',
 				'selectors' => [
-					'{{WRAPPER}} .section-title p' => 'color: {{VALUE}}',
-				],
+					'{{WRAPPER}} .team-hover p' => 'color: {{VALUE}}',
+				]
 			]
         );
         
-        // Description Typography 
+        // Designation Typography 
         $this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
-				'name' => 'desc_typography',
+				'name' => 'desg_typography',
 				'label' => __( 'Typography', 'plugin-domain' ),
 				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .section-title p',
+				'selector' => '{{WRAPPER}} .team-hover p',
 			]
         );
-
-		// Border Options
+        
+        // Social Options
 		$this->add_control(
-			'border_heading',
+			'social_heading',
 			[
-				'label' => __( 'Border', 'picchi-extension' ),
+				'label' => __( 'Social Icons', 'picchi-extension' ),
                 'type' => \Elementor\Controls_Manager::HEADING,
-                'separator' => 'before'
+                'separator' => 'before',
+				'condition' => [
+					'show_social_icon' => 'yes'
+				]
 			]
 		);
 
-		// Border 1 Background Color
+        // Social Color
         $this->add_control(
-			'border1_color',
+			'social_color',
 			[
 				'label' => __( 'Color', 'picchi-extension' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
@@ -318,29 +283,42 @@ class Team_Widget extends \Elementor\Widget_Base {
 					'type' => \Elementor\Scheme_Color::get_type(),
 					'value' => \Elementor\Scheme_Color::COLOR_1,
                 ],
-                'default' => '#777',
+                'default' => '#fff',
 				'selectors' => [
-					'{{WRAPPER}} .section-title h2::before' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .team-social a' => 'color: {{VALUE}}',
 				],
+				'condition' => [
+					'show_social_icon' => 'yes'
+				]
 			]
         );
 
-		// Border 2 Background Color
-        $this->add_control(
-			'border2_color',
+		// Social Size
+		$this->add_control(
+			'social_size',
 			[
-				'label' => __( 'Color', 'picchi-extension' ),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => \Elementor\Scheme_Color::get_type(),
-					'value' => \Elementor\Scheme_Color::COLOR_1,
-                ],
-                'default' => '#e16038',
-				'selectors' => [
-					'{{WRAPPER}} .section-title h2::after' => 'background-color: {{VALUE}}',
+				'label' => __( 'Font Size', 'plugin-domain' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 15,
+						'max' => 60,
+						'step' => 5,
+					],
 				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 15,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .team-social a' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'show_social_icon' => 'yes'
+				]
 			]
-        );
+		);
 
         $this->end_controls_section();
 	}
